@@ -119,6 +119,10 @@ confirmBtn.addEventListener("click", () => {
     // Ignora caso o navegador bloqueie o armazenamento.
   }
   chuvaDeCoracoes();
+  // Vai para a página final com o nome do parque escolhido.
+  setTimeout(() => {
+    window.location.href = "final.html?parque=" + encodeURIComponent(selecionado.nome);
+  }, 1500);
 });
 
 // Chuva de corações amarelos caindo do topo da página.
