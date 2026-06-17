@@ -94,13 +94,17 @@ const confirmMessage = document.getElementById("confirm-message");
 confirmBtn.addEventListener("click", () => {
   confirmBtn.classList.add("confirmed");
   confirmBtn.textContent = "Presença confirmada ✓";
-  confirmMessage.textContent = "Que magia! Mal podemos esperar para te ver ✨";
+  confirmMessage.textContent = "Que magia! Agora escolha o parque ✨";
   launchConfetti();
+  // Abre a página de escolha dos parques após uma breve animação.
+  setTimeout(() => {
+    window.location.href = "parques.html";
+  }, 1200);
 });
 
 // Confete simples com emojis
 function launchConfetti() {
-  const emojis = ["✨", "🎉", "💛", "🏰", "⭐", "🎊"];
+  const emojis = ["✨", "🎉", "💛", "⭐", "🎊"];
   for (let i = 0; i < 30; i++) {
     const c = document.createElement("span");
     c.textContent = emojis[Math.floor(Math.random() * emojis.length)];
