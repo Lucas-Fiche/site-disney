@@ -118,4 +118,30 @@ confirmBtn.addEventListener("click", () => {
   } catch (e) {
     // Ignora caso o navegador bloqueie o armazenamento.
   }
+  chuvaDeCoracoes();
 });
+
+// Chuva de corações amarelos caindo do topo da página.
+function chuvaDeCoracoes() {
+  for (let i = 0; i < 40; i++) {
+    const coracao = document.createElement("span");
+    coracao.textContent = "💛";
+    coracao.style.position = "fixed";
+    coracao.style.left = Math.random() * 100 + "vw";
+    coracao.style.top = "-50px";
+    coracao.style.fontSize = 18 + Math.random() * 22 + "px";
+    coracao.style.zIndex = 99;
+    coracao.style.pointerEvents = "none";
+    const duracao = 2.5 + Math.random() * 2;
+    coracao.style.transition = `transform ${duracao}s ease-in, opacity ${duracao}s ease-in`;
+    document.body.appendChild(coracao);
+
+    // Pequeno atraso aleatório para os corações não caírem todos juntos.
+    setTimeout(() => {
+      coracao.style.transform = `translateY(110vh) rotate(${(Math.random() - 0.5) * 360}deg)`;
+      coracao.style.opacity = "0";
+    }, Math.random() * 600);
+
+    setTimeout(() => coracao.remove(), (duracao + 1) * 1000);
+  }
+}
