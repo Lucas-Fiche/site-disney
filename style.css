@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(160deg, #0b1d51 0%, #3a1c71 45%, #6a3093 75%, #d76d9b 100%);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Estrelas piscando */
+.stars {
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, #fff, transparent),
+    radial-gradient(2px 2px at 60% 70%, #fff, transparent),
+    radial-gradient(1px 1px at 50% 20%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 80% 40%, #fff, transparent),
+    radial-gradient(1px 1px at 35% 80%, #fff, transparent),
+    radial-gradient(2px 2px at 90% 85%, #fff, transparent),
+    radial-gradient(1px 1px at 10% 60%, #fff, transparent);
+  animation: twinkle 4s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+/* Cartão central */
+.card {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 28px;
+  padding: 40px 32px;
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.title {
+  font-family: "Mountains of Christmas", cursive;
+  font-size: 2.4rem;
+  color: #ffe7a3;
+  text-shadow: 0 0 12px rgba(255, 215, 120, 0.6);
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #f3e9ff;
+  font-size: 1.05rem;
+  margin-bottom: 26px;
+  opacity: 0.9;
+}
+
+/* Moldura da foto */
+.photo-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 3px solid rgba(255, 231, 163, 0.7);
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  box-shadow: 0 0 25px rgba(255, 215, 120, 0.35);
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-placeholder {
+  display: none;
+  color: #f3e9ff;
+  font-size: 1rem;
+  line-height: 1.7;
+  padding: 16px;
+}
+
+.photo-frame.empty .photo-placeholder {
+  display: block;
+}
+
+.photo-placeholder code {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+/* Botão confirmar */
+.confirm-btn {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #3a1c71;
+  background: linear-gradient(135deg, #ffe7a3, #ffc857);
+  border: none;
+  border-radius: 50px;
+  padding: 16px 40px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 24px rgba(255, 200, 87, 0.5);
+}
+
+.confirm-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 12px 30px rgba(255, 200, 87, 0.7);
+}
+
+.confirm-btn.confirmed {
+  background: linear-gradient(135deg, #a8e6a3, #6fcf97);
+  box-shadow: 0 8px 24px rgba(111, 207, 151, 0.5);
+}
+
+.confirm-message {
+  margin-top: 18px;
+  color: #ffe7a3;
+  font-weight: 600;
+  font-size: 1.05rem;
+  min-height: 24px;
+}
+
+/* Botão de música */
+.music-toggle {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  color: #3a1c71;
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 50px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.music-toggle:hover { transform: scale(1.05); }
+
+.music-toggle.playing .music-icon {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Castelo */
+.castle {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  opacity: 0.85;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .title { font-size: 1.9rem; }
+  .music-text { display: none; }
+}

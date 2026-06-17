@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Convite Mágico ✨ Disney</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Estrelas de fundo -->
+  <div class="stars"></div>
+
+  <!-- Botão de música -->
+  <button id="music-toggle" class="music-toggle" aria-label="Ligar/desligar música">
+    <span class="music-icon">🎵</span>
+    <span class="music-text">Tocar música</span>
+  </button>
+
+  <!-- Áudio de fundo. Coloque seu arquivo em assets/musica.mp3 -->
+  <audio id="bg-music" loop>
+    <source src="assets/musica.mp3" type="audio/mpeg" />
+  </audio>
+
+  <main class="card">
+    <h1 class="title">✨ Você está convidado ✨</h1>
+    <p class="subtitle">Para um dia mágico cheio de encanto Disney</p>
+
+    <!-- Espaço para a foto -->
+    <div class="photo-frame">
+      <img src="assets/foto.jpg" alt="Foto do convite" id="photo"
+           onerror="this.style.display='none';this.parentElement.classList.add('empty')" />
+      <span class="photo-placeholder">📷<br />Coloque sua foto em<br /><code>assets/foto.jpg</code></span>
+    </div>
+
+    <!-- Botão de confirmar presença -->
+    <button id="confirm-btn" class="confirm-btn">Confirmar presença 💛</button>
+    <p id="confirm-message" class="confirm-message"></p>
+  </main>
+
+  <div class="castle">🏰</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
