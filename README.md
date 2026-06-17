@@ -5,8 +5,9 @@ presença e música de fundo.
 
 ## 📁 O que personalizar
 
-1. **Foto** — coloque sua imagem em `assets/foto.jpg`
-   (enquanto não houver foto, aparece um espaço indicando onde colocá-la).
+1. **Foto** — coloque sua imagem em `assets/foto.jpg` (também aceita
+   `.jpeg`, `.png` ou `.webp` com o nome `foto`). Enquanto não houver
+   foto, aparece um espaço indicando onde colocá-la.
 
 2. **Música** — coloque um arquivo `.mp3` em `assets/musica.mp3`.
    > ⚠️ **Direitos autorais:** músicas oficiais da Disney são protegidas.

@@ -54,6 +54,39 @@ function startOnInteraction() {
 
 window.addEventListener("load", tryAutoplay);
 
+// --- Foto: tenta vários formatos de arquivo ---
+const photo = document.getElementById("photo");
+const photoFrame = photo.parentElement;
+const photoCandidates = [
+  "assets/foto.jpg",
+  "assets/foto.jpeg",
+  "assets/foto.png",
+  "assets/foto.webp",
+];
+
+function tryLoadPhoto(index) {
+  if (index >= photoCandidates.length) {
+    // Nenhum arquivo encontrado: mostra o espaço indicando onde colocar a foto.
+    photo.style.display = "none";
+    photoFrame.classList.add("empty");
+    return;
+  }
+  photo.src = photoCandidates[index];
+}
+
+photo.addEventListener("error", () => {
+  const current = photo.getAttribute("src");
+  const next = photoCandidates.indexOf(current) + 1;
+  tryLoadPhoto(next);
+});
+
+photo.addEventListener("load", () => {
+  photo.style.display = "block";
+  photoFrame.classList.remove("empty");
+});
+
+tryLoadPhoto(0);
+
 // --- Confirmar presença ---
 const confirmBtn = document.getElementById("confirm-btn");
 const confirmMessage = document.getElementById("confirm-message");
