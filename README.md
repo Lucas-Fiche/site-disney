@@ -16,6 +16,12 @@ presença e música de fundo.
    > opções gratuitas em sites como o [Pixabay Music](https://pixabay.com/music/)
    > ou a [Biblioteca de Áudio do YouTube](https://www.youtube.com/audiolibrary).
 
+3. **Parques** — ao clicar em "Confirmar presença", abre a página
+   `parques.html` com 7 parques. Para cada um, coloque a imagem em
+   `assets/parque1.jpg`, `assets/parque2.jpg`, ... `assets/parque7.jpg`
+   (também aceita `.png`/`.webp`). Os nomes e descrições podem ser
+   editados no arquivo `parques.js`.
+
 ### Observação sobre o autoplay
 A maioria dos navegadores **bloqueia músicas que tocam sozinhas** ao abrir a
 página. Por isso, o site tenta iniciar automaticamente e, se for bloqueado,
